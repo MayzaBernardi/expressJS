@@ -1,0 +1,34 @@
+import { sequelize } from "../config/index.js";
+import { DataTypes } from "sequelize";
+
+const usuario = sequelize.define(
+    'usuarios',
+    {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+            autoIncrement: true
+        },
+        nome: {
+            type: DataTypes.STRING(100),
+            allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING(100),
+            allowNull: false,
+            unique: true
+        },
+        senha: {
+            type: DataTypes.STRING(255),
+            allowNull: false
+        }
+    },
+    {
+        freezeTableName: true,
+        timestamps: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at'
+    }
+);
+
+export default usuario;
