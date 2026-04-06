@@ -1,6 +1,12 @@
-import Routes from "./routes/index.js";
 import express from "express";
+import routes from "./routes/index.js";
+
 const app = express();
 app.use(express.json());
 
-Routes(app);
+app.use(routes);
+
+const PORT = 3333;
+app.listen(PORT, () => {
+    console.log(`Sistema rodando na porta ${PORT}`);
+});

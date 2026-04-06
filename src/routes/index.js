@@ -1,7 +1,8 @@
+import express from "express";
 import vetorRoute from "./vetorRoute.js";
 
-function Routes(app) {
-    vetorRoute(app);
-}
+const router = express.Router();
 
-export default Routes;
+router.use(vetorRoute);
+
+export default router;

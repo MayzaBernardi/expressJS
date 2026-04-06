@@ -1,9 +1,11 @@
-import vetorControler from "../controller/vetorControler.js";          
+import express from "express";
+import vetorController from "../controllers/vetorController.js";
 
+const router = express.Router();
 
-export default (app) =>{
-    app.get("/tarefas", vetorControler.vetor);
-    app.post("/tarefas", vetorControler.id);
-    app.put("/tarefas/:id", vetorControler.id); 
-    app.delete("/tarefas/:id", vetorControler.id);
-}
+router.get("/tarefas", vetorController.getAll);
+router.post("/tarefas", vetorController.create);
+router.put("/tarefas/:id", vetorController.update);
+router.delete("/tarefas/:id", vetorController.remove);
+
+export default router;
